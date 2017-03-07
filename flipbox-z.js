@@ -7,7 +7,7 @@ global.flipbox = true
 //
 // console.log(FlipBox)
 
-const FlipBox = require('../flipbox')
+const FlipBox = require('./flipbox')
 let externals = [
   'realm-js', 'realm-utils',
   'webpack', 'fuse-box', 'fusebox', 'fsbx', 'happypack',
@@ -23,7 +23,7 @@ let externals = [
 ]
 
 const webpack = require('webpack')
-const fsbx = require('fsbx')
+// const fsbx = require('fsbx')
 const apps = [
   // {
   //   homeDir: require('path').resolve(__dirname, '../'),
@@ -33,40 +33,41 @@ const apps = [
   //   presets: ['node'],
   //   externals,
   // },
-  {
-    name: 'fusebox-plugins',
-    entry: './empty/empty.js',
-    outFile: './dist/provide.js',
-    fusebox: true,
-    define: {
-      'eh': 'eh',
-    },
-    params: {
-      shim: {
-        'realm-utils': {
-          exports: `require("realm-utils")`,
-        },
-      },
-      // this works in a similar way to how things such as `process.env`
-      // are automatically added for the browser
-      autoImport: {
-        // used any time we do `Inferno.anything` in the source code
-        Inferno: 'inferno',
-      },
-      plugins: [
-        fsbx.JSONPlugin(),
-        // these css plugins are chained
-        [
-          fsbx.LESSPlugin(),
-          fsbx.CSSPlugin({
-            // file is the file.info.absPath
-            // more info on that in the `Plugin API` section
-            outFile: (file) => `./tmp/${file}`,
-          }),
-        ],
-      ],
-    },
-  },
+  //
+  // {
+  //   name: 'fusebox-plugins',
+  //   entry: './empty/empty.js',
+  //   outFile: './dist/provide.js',
+  //   fusebox: true,
+  //   define: {
+  //     'eh': 'eh',
+  //   },
+  //   params: {
+  //     shim: {
+  //       'realm-utils': {
+  //         exports: `require("realm-utils")`,
+  //       },
+  //     },
+  //     // this works in a similar way to how things such as `process.env`
+  //     // are automatically added for the browser
+  //     autoImport: {
+  //       // used any time we do `Inferno.anything` in the source code
+  //       Inferno: 'inferno',
+  //     },
+  //     plugins: [
+  //       fsbx.JSONPlugin(),
+  //       // these css plugins are chained
+  //       [
+  //         fsbx.LESSPlugin(),
+  //         fsbx.CSSPlugin({
+  //           // file is the file.info.absPath
+  //           // more info on that in the `Plugin API` section
+  //           outFile: (file) => `./tmp/${file}`,
+  //         }),
+  //       ],
+  //     ],
+  //   },
+  // },
   {
     name: 'webpack-plugins',
     entry: './src/empty/empty.js',
@@ -120,9 +121,27 @@ const apps = [
     // },
   },
   {
+    name: 'emptyes6',
+    entry: './src/empty/es6/empty.js',
+    outFile: './dist/emptyes6.js',
+    builder: 'rollup',
+  },
+  {
+    name: 'blackhole',
+    entry: './src/empty/empty2.js',
+    outFile: './dist/blackhole.js',
+  },
+  {
     name: 'empty',
     entry: './src/empty/empty.js',
     outFile: './dist/empty.js',
+    // instructions: '!>./src/empty/empty.js',
+  },
+  {
+    name: 'rollup-a-bundle',
+    entry: './src/z/rollup-a-bundle',
+    outFile: './dist/empty-roll.js',
+    builder: 'rollup',
   },
   {
     name: 'onethreeshawn',

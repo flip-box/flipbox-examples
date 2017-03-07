@@ -2,9 +2,14 @@
 // var path = require('path')
 global._dirname = __dirname
 
+const e = require('./dist/empty')
+// const tosource = require('tosource')
+console.log(e)
+// console.log(tosource(e))
+
 // const {cli} = require('../../src')
 // console.log(cli)
-require('./configs/z/entry.js')
+// require('./configs/z/entry.js')
 // cli.flipHandler(require('./configs/z/entry.js'))
 
 // require('./configs/minimal')

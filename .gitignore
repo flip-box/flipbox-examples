@@ -11,4 +11,4 @@ lerna-debug.log
 .tmp
 .happypack
 .fusebox
-.node_modules_
+node_modules_
