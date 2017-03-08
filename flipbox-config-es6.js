@@ -1,6 +1,6 @@
 export default {
-  root: './',
-  aliasDir: './configs/aliases/',
+  // root: './',
+  aliasDir: './aliases/',
   apps: [{
     name: 'canadas',
     compile: true,

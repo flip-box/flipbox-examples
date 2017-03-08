@@ -2,15 +2,21 @@
 // var path = require('path')
 global._dirname = __dirname
 
-const e = require('./dist/empty')
-// const tosource = require('tosource')
-console.log(e)
-// console.log(tosource(e))
+// const e = require('./dist/empty')
+// console.log(e)
 
-// const {cli} = require('../../src')
-// console.log(cli)
+// @TODO:
+// here we could register our different configs, and filter configs!
+// like presets of apps
+const {cli} = require('./flipbox')
+cli.flip('flipbox-config-es6', __dirname)
+
+console.log(cli, __dirname)
+// cli.flipHandler(require('./flip-z.js'))
+
+
+
 // require('./configs/z/entry.js')
-// cli.flipHandler(require('./configs/z/entry.js'))
 
 // require('./configs/minimal')
 
